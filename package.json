@@ -1,0 +1,26 @@
+{
+  "name": "timed-notes",
+  "version": "0.1.0",
+  "description": "An timed note app",
+  "main": "./src/main.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "start": "electron .",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/edysegura/electron-timed-notes.git"
+  },
+  "author": "Edy Segura",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/edysegura/electron-timed-notes/issues"
+  },
+  "homepage": "https://github.com/edysegura/electron-timed-notes#readme",
+  "devDependencies": {
+    "electron": "^17.0.1"
+  }
+}
