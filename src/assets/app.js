@@ -9,7 +9,7 @@ function toggleTimer() {
 
   timerId = setInterval(() => {
     ++seconds
-    updateDisplay(getElapsedTime(seconds))
+    updateDisplay(secondsToHms(seconds))
   }, 1000)
 }
 
@@ -34,21 +34,14 @@ function setStopButton() {
   btn?.addEventListener('click', () => stopTimer())
 }
 
-function getElapsedTime(elapsedSeconds) {
-  let hours = Math.floor(elapsedSeconds / 3600) // get hours
-  let minutes = Math.floor((elapsedSeconds - hours * 3600) / 60) // get minutes
-  let seconds = elapsedSeconds - hours * 3600 - minutes * 60 //  get seconds
-  // add 0 if value < 10; Example: 2 => 02
-  if (hours < 10) {
-    hours = '0' + hours
-  }
-  if (minutes < 10) {
-    minutes = '0' + minutes
-  }
-  if (seconds < 10) {
-    seconds = '0' + seconds
-  }
-  return hours + ':' + minutes + ':' + seconds // Return is HH : MM : SS
+function secondsToHms(elapsedSeconds) {
+  const h = Math.floor(elapsedSeconds / 3600)
+  const m = Math.floor((elapsedSeconds % 3600) / 60)
+  const s = Math.floor((elapsedSeconds % 3600) % 60)
+
+  const pad = (value) => (value < 10 ? '0' + value : value)
+
+  return pad(h) + ':' + pad(m) + ':' + pad(s)
 }
 
 setPlayButton()
