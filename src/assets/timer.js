@@ -1,7 +1,7 @@
 let seconds = 0
 let timerId
 
-function toggleTimer(callback) {
+export function toggleTimer(callback) {
   if (timerId) {
     timerId = clearInterval(timerId)
     return
@@ -13,7 +13,7 @@ function toggleTimer(callback) {
   }, 1000)
 }
 
-function stopTimer() {
+export function stopTimer() {
   timerId = clearInterval(timerId)
   seconds = 0
   callback('00:00:00')
