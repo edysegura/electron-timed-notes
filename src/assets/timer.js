@@ -1,22 +1,33 @@
-let seconds = 0
-let timerId
+export default class ElapsedTimer {
+  #elapsedSeconds = 0
+  #timerId = null
+  #milliseconds = 0
+  #action = null
 
-export function toggleTimer(callback) {
-  if (timerId) {
-    timerId = clearInterval(timerId)
-    return
+  constructor(callback, milliseconds = 1000) {
+    this.#action = callback
+    this.#milliseconds = milliseconds
   }
 
-  timerId = setInterval(() => {
-    ++seconds
-    callback(seconds)
-  }, 1000)
-}
+  toggleTimer() {
+    if (this.#timerId) {
+      this.#timerId = clearInterval(this.#timerId)
+      return
+    }
 
-export function stopTimer() {
-  timerId = clearInterval(timerId)
-  seconds = 0
-  callback('00:00:00')
+    const performAction = () => {
+      ++this.#elapsedSeconds
+      this.#action(secondsToHms(this.#elapsedSeconds))
+    }
+
+    this.#timerId = setInterval(performAction, this.#milliseconds)
+  }
+
+  stopTimer() {
+    this.#timerId = clearInterval(this.#timerId)
+    this.#elapsedSeconds = 0
+    this.#action(secondsToHms(this.#elapsedSeconds))
+  }
 }
 
 export function secondsToHms(elapsedSeconds) {
