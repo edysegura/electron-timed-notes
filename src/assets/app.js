@@ -1,4 +1,4 @@
-import ElapsedTimer from './timer.js'
+import ElapsedTimer from './ElapsedTimer.js'
 
 const elapsedTimer = new ElapsedTimer(updateDisplay)
 
