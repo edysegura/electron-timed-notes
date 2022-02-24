@@ -1,6 +1,8 @@
 import ElapsedTimer from './ElapsedTimer.js'
+import HtmlService from './HtmlService.js'
 
 const elapsedTimer = new ElapsedTimer(updateDisplay)
+new HtmlService()
 
 function updateDisplay(time) {
   const timerElement = document.querySelector('.time')
