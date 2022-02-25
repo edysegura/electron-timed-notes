@@ -3,6 +3,15 @@
   padding: 0;
 }
 
+body, input, button {
+  font-size: 2rem;
+}
+
+button {
+  font-size: 1.5rem;
+  padding: 4px;
+}
+
 .wrapper {
   width: 50%;
   margin: 1rem auto 0;
