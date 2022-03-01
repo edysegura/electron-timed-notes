@@ -14,7 +14,9 @@ export default class HtmlService {
 
   setForm() {
     const form = document.querySelector('form')
-    form.addEventListener('submit', (event) => event.preventDefault())
+    form.addEventListener('submit', (event) => {
+      event.preventDefault()
+    })
   }
 
   updateDisplay(time) {
@@ -24,11 +26,28 @@ export default class HtmlService {
 
   setPlayButton() {
     const btn = document.getElementById('btn-play')
-    btn?.addEventListener('click', () => this.#timer.toggleTimer())
+    btn?.addEventListener('click', () => {
+      this.#timer.toggleTimer()
+      this.toggleInputNote()
+    })
   }
 
   setStopButton() {
     const btn = document.getElementById('btn-stop')
-    btn?.addEventListener('click', () => this.#timer.stopTimer())
+    btn?.addEventListener('click', () => {
+      const isDisabled = true
+      this.#timer.stopTimer()
+      this.disabledInputNote()
+    })
+  }
+
+  disabledInputNote() {
+    const isDisabled = true
+    this.toggleInputNote(isDisabled)
+  }
+
+  toggleInputNote(isDisabled) {
+    const input = document.getElementById('input-note')
+    input.disabled = isDisabled ?? !input.disabled
   }
 }
