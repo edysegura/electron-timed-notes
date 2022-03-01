@@ -35,15 +35,20 @@ export default class HtmlService {
   setStopButton() {
     const btn = document.getElementById('btn-stop')
     btn?.addEventListener('click', () => {
-      const isDisabled = true
       this.#timer.stopTimer()
       this.disabledInputNote()
+      this.clearInputNote()
     })
   }
 
   disabledInputNote() {
     const isDisabled = true
     this.toggleInputNote(isDisabled)
+  }
+
+  clearInputNote() {
+    const input = document.getElementById('input-note')
+    input.value = ''
   }
 
   toggleInputNote(isDisabled) {
