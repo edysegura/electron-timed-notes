@@ -9,6 +9,7 @@ export default class HtmlService {
   init() {
     this.setPlayButton()
     this.setStopButton()
+    this.setInputNote()
   }
 
   updateDisplay(time) {
@@ -31,6 +32,22 @@ export default class HtmlService {
       this.disabledInputNote()
       this.clearInputNote()
     })
+  }
+
+  setInputNote() {
+    const input = document.getElementById('input-note')
+    input.addEventListener('keyup', (event) => {
+      if (event.key.toUpperCase() === 'ENTER') {
+        const timedNote = `${this.#timer.lap()} - ${input.value}`
+        this.addNote(timedNote)
+        this.clearInputNote()
+      }
+    })
+  }
+
+  addNote(note) {
+    const textarea = document.querySelector('textarea')
+    textarea.value += `${note}\n`
   }
 
   disabledInputNote() {
