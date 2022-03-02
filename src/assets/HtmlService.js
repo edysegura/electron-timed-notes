@@ -7,16 +7,8 @@ export default class HtmlService {
   }
 
   init() {
-    this.setForm()
     this.setPlayButton()
     this.setStopButton()
-  }
-
-  setForm() {
-    const form = document.querySelector('form')
-    form.addEventListener('submit', (event) => {
-      event.preventDefault()
-    })
   }
 
   updateDisplay(time) {
