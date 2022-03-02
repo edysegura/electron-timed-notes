@@ -26,7 +26,7 @@ export default class HtmlService {
 
   setPlayButton() {
     const btn = document.getElementById('btn-play')
-    btn?.addEventListener('click', () => {
+    btn.addEventListener('click', () => {
       this.#timer.toggleTimer()
       this.toggleInputNote()
     })
@@ -34,7 +34,7 @@ export default class HtmlService {
 
   setStopButton() {
     const btn = document.getElementById('btn-stop')
-    btn?.addEventListener('click', () => {
+    btn.addEventListener('click', () => {
       this.#timer.stopTimer()
       this.disabledInputNote()
       this.clearInputNote()
