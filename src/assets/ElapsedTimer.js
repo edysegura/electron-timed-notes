@@ -28,6 +28,10 @@ export default class ElapsedTimer {
     this.#elapsedSeconds = 0
     this.#action(secondsToHms(this.#elapsedSeconds))
   }
+
+  lap() {
+    return secondsToHms(this.#elapsedSeconds)
+  }
 }
 
 export function secondsToHms(elapsedSeconds) {
