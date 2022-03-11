@@ -30,10 +30,12 @@ export default class ElapsedTimer {
   }
 
   lap() {
-    return secondsToHms(this.#elapsedSeconds)
+    return secondsToMin(this.#elapsedSeconds)
   }
 }
 
+// TODO show only minutes value
+// TODO may be return both values with seconds
 export function secondsToHms(elapsedSeconds) {
   const hours = Math.floor(elapsedSeconds / 3600)
   const minutes = Math.floor((elapsedSeconds % 3600) / 60)
@@ -42,4 +44,8 @@ export function secondsToHms(elapsedSeconds) {
   const pad = (value) => (value < 10 ? '0' + value : value)
 
   return pad(hours) + ':' + pad(minutes) + ':' + pad(seconds)
+}
+
+export function secondsToMin(elapsedSeconds) {
+  return elapsedSeconds / 60
 }
