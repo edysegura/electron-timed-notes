@@ -38,11 +38,17 @@ export default class HtmlService {
     const input = document.getElementById('input-note')
     input.addEventListener('keyup', (event) => {
       if (event.key.toUpperCase() === 'ENTER') {
-        const timedNote = `${this.#timer.lap()} - ${input.value}`
+        const minutes = this.formantMinutes(this.#timer.lap())
+        const timedNote = `${minutes} - ${input.value}`
         this.addNote(timedNote)
         this.clearInputNote()
       }
     })
+  }
+
+  formantMinutes(minutes) {
+    const formattedMin = minutes.toFixed(0)
+    return String(formattedMin).padStart(2, '0')
   }
 
   addNote(note) {
