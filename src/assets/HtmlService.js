@@ -69,5 +69,8 @@ export default class HtmlService {
   toggleInputNote(isDisabled) {
     const input = document.getElementById('input-note')
     input.disabled = isDisabled ?? !input.disabled
+    if (!input.disabled) {
+      input.focus()
+    }
   }
 }
