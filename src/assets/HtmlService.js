@@ -10,6 +10,7 @@ export default class HtmlService {
     this.setPlayButton()
     this.setStopButton()
     this.setInputNote()
+    this.setDeleteNotes()
   }
 
   updateDisplay(time) {
@@ -46,6 +47,13 @@ export default class HtmlService {
     })
   }
 
+  setDeleteNotes() {
+    const btn = document.getElementById('btn-delete-notes')
+    btn.addEventListener('click', () => {
+      confirm('Delete notes?') && this.clearNotes()
+    })
+  }
+
   formantMinutes(minutes) {
     const formattedMin = minutes.toFixed(0)
     return String(formattedMin).padStart(2, '0')
@@ -64,6 +72,11 @@ export default class HtmlService {
   clearInputNote() {
     const input = document.getElementById('input-note')
     input.value = ''
+  }
+
+  clearNotes() {
+    const textarea = document.querySelector('textarea')
+    textarea.value = ''
   }
 
   toggleInputNote(isDisabled) {
