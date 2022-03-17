@@ -29,9 +29,11 @@ export default class HtmlService {
   setStopButton() {
     const btn = document.getElementById('btn-stop')
     btn.addEventListener('click', () => {
-      this.#timer.stopTimer()
-      this.disabledInputNote()
-      this.clearInputNote()
+      if (confirm('Stop timer?')) {
+        this.#timer.stopTimer()
+        this.disabledInputNote()
+        this.clearInputNote()
+      }
     })
   }
 
