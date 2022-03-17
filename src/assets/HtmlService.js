@@ -39,7 +39,7 @@ export default class HtmlService {
     input.addEventListener('keyup', (event) => {
       if (event.key.toUpperCase() === 'ENTER') {
         const minutes = this.formantMinutes(this.#timer.lap())
-        const timedNote = `${minutes} - ${input.value}`
+        const timedNote = `${minutes}m - ${input.value}`
         this.addNote(timedNote)
         this.clearInputNote()
       }
