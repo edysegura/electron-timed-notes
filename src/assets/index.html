@@ -13,7 +13,7 @@
     />
     <title>Timed Notes</title>
     <link rel="stylesheet" href="style.css" />
-    <script defer src="app.js" type="module"></script>
+    <script src="app.js" type="module" defer></script>
   </head>
   <body>
     <div class="wrapper">
@@ -31,5 +31,14 @@
         <button id="btn-delete-notes">Delete notes</button>
       </div>
     </div>
+    <dialog id="stop-dialog">
+      <form method="dialog">
+        <p>Do you want stop the timer?</p>
+        <menu>
+          <button value="no">No</button>
+          <button value="yes">Yes</button>
+        </menu>
+      </form>
+    </dialog>
   </body>
 </html>

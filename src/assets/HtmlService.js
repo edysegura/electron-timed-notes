@@ -9,6 +9,7 @@ export default class HtmlService {
   init() {
     this.setPlayButton()
     this.setStopButton()
+    this.setStopDialog()
     this.setInputNote()
     this.setDeleteNotes()
   }
@@ -29,7 +30,15 @@ export default class HtmlService {
   setStopButton() {
     const btn = document.getElementById('btn-stop')
     btn.addEventListener('click', () => {
-      if (confirm('Stop timer?')) {
+      const dialog = document.getElementById('stop-dialog')
+      dialog.showModal()
+    })
+  }
+
+  setStopDialog() {
+    const dialog = document.getElementById('stop-dialog')
+    dialog.addEventListener('close', () => {
+      if (dialog.returnValue === 'yes') {
         this.#timer.stopTimer()
         this.disabledInputNote()
         this.clearInputNote()
