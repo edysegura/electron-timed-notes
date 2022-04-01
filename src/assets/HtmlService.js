@@ -30,13 +30,13 @@ export default class HtmlService {
   setStopButton() {
     const btn = document.getElementById('btn-stop')
     btn.addEventListener('click', () => {
-      const dialog = document.getElementById('stop-dialog')
+      const dialog = document.getElementById('confirm-dialog')
       dialog.showModal()
     })
   }
 
   setStopDialog() {
-    const dialog = document.getElementById('stop-dialog')
+    const dialog = document.getElementById('confirm-dialog')
     dialog.addEventListener('close', () => {
       if (dialog.returnValue === 'yes') {
         this.#timer.stopTimer()
