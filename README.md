@@ -1,5 +1,7 @@
 # Timed Notes App
 
+Find the the PWA version [here](https://github.com/edysegura/notehacker)!
+
 This is an Electron application for taking notes at that specific time.
 
 ![alt text](docs/mockup.png "App Mockup")
